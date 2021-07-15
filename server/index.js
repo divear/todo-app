@@ -16,8 +16,8 @@ app.use(express.json())
 app.post("/todos", async(req, res)=>{
     try {
         const respo = req.body
-        console.log(respo);
-        const newTodo = await pool.query("INSERT INTO todo (body, username) VALUES($1, $2) RETURNING *", [respo.body, respo.username]);
+        
+        const newTodo = await pool.query("INSERT INTO todo (body, username) VALUES($1, $2) RETURNING *", [respo[0].body, respo[1].username]);
         res.json(newTodo.rows[0])
     } catch (error) {
         console.log(error);
@@ -74,7 +74,8 @@ app.delete("/todos/:id", async(req, res)=>{
     }
 })
 
-const port = process.env.port || 4000
+const port = process.env.port || 4001
+
 app.listen(port, ()=>{
     console.log(`listening on port ${port}`);
 })
