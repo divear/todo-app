@@ -16,11 +16,10 @@ function InputTodo() {
                 body: JSON.stringify(arr),
                 username: JSON.stringify(Rname)
             });
-            window.location("/")
+            window.location.reload()
         } catch (error) {
             console.log(error);
         }
-        
     }
     
     return (
@@ -29,7 +28,6 @@ function InputTodo() {
             <form onSubmit={e => onSubmit(e)} action="">
                 <input className="body" value={body} onChange={e => setBody(e.target.value)} type="text" />
                 <button className="bodyB"><b>Add</b></button>
-
                 <div className="name">
                     <label htmlFor="d">Your username: </label>
                     <input id="d" value={username} onChange={e => setUsername(e.target.value)} type="text" />
