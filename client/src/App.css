@@ -1,6 +1,7 @@
 :root{
   --sky: rgb(137, 216, 226);
   --warn: rgb(209, 44, 38);
+  --bg: rgb(30, 25, 59);
 }
 h1{
   text-align: center;
@@ -26,6 +27,7 @@ body{
   margin: 0.5vw;
   font-family:fantasy;
   font-size: 1vw;
+  background-color: var(--bg);
 }
 form{
 
@@ -88,16 +90,18 @@ tr{
   padding: 20px;
   border: 1px solid #888;
   width: 80%;
+  background-color: var(--bg);
 }
 .close {
   color: #aaaaaa;
   float: right;
   font-size: 28px;
   font-weight: bold;
+  color: rgb(255, 255, 255);
 }
 .close:hover,
 .close:focus {
-  color: #000;
+  color: rgb(255, 255, 255);
   text-decoration: none;
   cursor: pointer;
 }

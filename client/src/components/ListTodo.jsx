@@ -49,7 +49,7 @@ function ListTodo() {
                                 <td>{d.id}</td>
                                 <td>{d.body}</td>
                                 <td>{d.username}</td>
-                                <td className="b"><EditTodo/></td>
+                                <td className="b"><EditTodo todo={d}/></td>
                                 <td className="b"><button onClick={()=> deleteTodo(d.id)} className="buttonDelete">delete</button></td>
                             </tr>
                         )
