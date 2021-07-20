@@ -37,6 +37,8 @@ function ListTodo() {
                         <th>id</th>
                         <th>body</th>
                         <th>name</th>
+                        <th>time</th>
+                        <td>edited</td>
                         <th>edit</th>
                         <th>delete</th>
                     </tr>  
@@ -48,7 +50,9 @@ function ListTodo() {
                             <tr key={d.id}>
                                 <td>{d.id}</td>
                                 <td>{d.body}</td>
-                                <td>{d.username}</td>
+                                <td className={d.username == "anonymous" ? "anon" : "username"}>{d.username}</td>
+                                <td>{d.ctime}</td>
+                                <td>{d.isedited ? "yes" : "no"}</td>
                                 <td className="b"><EditTodo todo={d}/></td>
                                 <td className="b"><button onClick={()=> deleteTodo(d.id)} className="buttonDelete">Delete</button></td>
                             </tr>

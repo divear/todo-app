@@ -11,13 +11,15 @@ app.use(express.json())
 
 //ROUTES//
 
-//create 
+//create
 
 app.post("/todos", async(req, res)=>{
     try {
         const respo = req.body
-        
-        const newTodo = await pool.query("INSERT INTO todo (body, username) VALUES($1, $2) RETURNING *", [respo[0].body, respo[1].username]);
+        console.log(respo);
+        const newTodo = await pool.query("INSERT INTO todo (body, username, ctime, isedited) VALUES($1, $2, $3, $4) RETURNING *",
+         [respo[0].body, respo[1].username, new Date().toLocaleString(), respo[3]]);
+        console.log(newTodo);
         res.json(newTodo.rows[0])
     } catch (error) {
         console.log(error);
@@ -54,8 +56,9 @@ app.get("/todos/:id", async(req, res)=>{
 app.put("/todos/:id", async(req, res)=>{
     try {
         const {id} = req.params
-        const {body} = req.body
-        const updateTodo = await pool.query("UPDATE todo SET body = $1 WHERE id = $2", [body, id]);
+        const respo = req.body
+        console.log(respo);
+        const updateTodo = await pool.query("UPDATE todo SET body = $1, isedited = $2 WHERE id = $3", [respo[0].body, respo[1].isedited, id]);
         res.json("todo was updated")
     } catch (error) {
         console.log(error);

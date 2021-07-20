@@ -2,31 +2,40 @@ import React, { useState } from 'react';
 
 function InputTodo() {
     const [body, setBody] = useState("");
-    const [username, setUsername] = useState("anonymous")
+    const [username, setUsername] = useState("anonymous");
+    
+    const [isedited, setIsedited] = useState(false);
+
 
     async function onSubmit(e){
         e.preventDefault()
         try {
             const Rbody = {body}
             const Rname = {username}
-            const arr = [Rbody, Rname]
+            
+            const Redited = {isedited}
+            const arr = [Rbody, Rname, Redited]
             const response = await fetch("http://localhost:4001/todos", {
                 method: "POST",
                 headers: {"Content-Type": "application/json"},
                 body: JSON.stringify(arr),
-                username: JSON.stringify(Rname)
+                username: JSON.stringify(Rname),
+                isedited: JSON.stringify(Redited)
             });
             window.location.reload()
         } catch (error) {
             console.log(error);
         }
     }
+    function sb(e){
+        setBody(e.target.value);
+    }
     
     return (
         <div>
             <h1>Todos</h1>
             <form onSubmit={e => onSubmit(e)} action="">
-                <input className="body" value={body} onChange={e => setBody(e.target.value)} type="text" />
+                <input className="body" value={body} onChange={e => sb(e)} type="text" />
                 <button className="bodyB"><b>Add</b></button>
                 <div className="name">
                     <label htmlFor="d">Your username: </label>
