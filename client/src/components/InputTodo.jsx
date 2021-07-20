@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 function InputTodo() {
     const [body, setBody] = useState("");
@@ -6,6 +6,14 @@ function InputTodo() {
     
     const [isedited, setIsedited] = useState(false);
 
+    useEffect(() => {
+        const userdata = localStorage.getItem('username');
+        setUsername(userdata)
+    }, [])
+
+    useEffect(() => {
+        localStorage.setItem('username',username)
+    }, [username])
 
     async function onSubmit(e){
         e.preventDefault()
@@ -38,7 +46,7 @@ function InputTodo() {
                 <input className="body" value={body} onChange={e => sb(e)} type="text" />
                 <button className="bodyB"><b>Add</b></button>
                 <div className="name">
-                    <label htmlFor="d">Your username: </label>
+                    <label className="userlabel" htmlFor="d">Your username: </label>
                     <input id="d" value={username} onChange={e => setUsername(e.target.value)} type="text" />
                 </div>
             </form>
