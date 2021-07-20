@@ -50,7 +50,7 @@ function ListTodo() {
                             <tr key={d.id}>
                                 <td>{d.id}</td>
                                 <td>{d.body}</td>
-                                <td className={d.username == "anonymous" ? "anon" : "username"}>{d.username}</td>
+                                <td className={d.username === "anonymous" ? "anon" : "username"}>{d.username}</td>
                                 <td>{d.ctime}</td>
                                 <td>{d.isedited ? "yes" : "no"}</td>
                                 <td className="b"><EditTodo todo={d}/></td>
@@ -65,4 +65,4 @@ function ListTodo() {
     )
 }
 
-export default ListTodo
+export default ListTodo;
