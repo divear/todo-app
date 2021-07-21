@@ -6,6 +6,13 @@
   --li: rgb(94,81,164);
   --y: #5272c9;
 }
+/*custom font*/
+@font-face {
+  font-family: 'RobotoMono-VariableFont_wght';
+  src: local('RobotoMono-VariableFont_wght'), url(./fonts/RobotoMono-VariableFont_wght.ttf) format('truetype');
+  /* other formats include: 'woff2', 'truetype, 'opentype',
+                            'embedded-opentype', and 'svg' */
+}
 
 h1{
   text-align: center;
@@ -15,7 +22,6 @@ h1{
 body{
   background-color: var(--bg);
   color: aliceblue;
-  font-family:fantasy;
 }
 ::selection{
   background-color: var(--mid);
@@ -24,7 +30,6 @@ body{
 .bodyB{
   width:5%;
   height:3vw;
-  font-family:fantasy;
   font-size: 1vw;
   background-color: var(--sky);
 
@@ -33,7 +38,6 @@ body{
   width:50%;
   height:2vw;
   margin: 0.5vw;
-  font-family:fantasy;
   font-size: 1vw;
   background-color: var(--li);
   color: #f5f5f5;
@@ -163,3 +167,4 @@ user-select: none;
   height: 100%;
   color: var(--y);
 }
+
