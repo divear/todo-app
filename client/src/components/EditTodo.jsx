@@ -38,6 +38,7 @@ function EditTodo({todo}) {
     
     return (
         <div className="edit">
+            
             <button onClick={sm} className="buttonEdit">Edit</button>
             <div className={mod ? "modal" : "modalF"}>
                 <div className="modal-content">

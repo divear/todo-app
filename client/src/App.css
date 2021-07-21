@@ -1,9 +1,10 @@
 :root{
-  --sky: rgb(137, 161, 226);
+  --sky: #89a1e2;
   --warn: rgb(228, 94, 89);
   --bg: rgb(30, 25, 59);
   --mid: rgb(84,93,143);
   --li: rgb(94,81,164);
+  --y: #5272c9;
 }
 
 h1{
@@ -153,4 +154,12 @@ h3{
 -moz-user-select: none;
 -ms-user-select: none; 
 user-select: none;
+}
+
+.star{
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  color: var(--y);
 }

@@ -9,11 +9,11 @@ function InputTodo() {
     useEffect(() => {
         const userdata = localStorage.getItem('username');
         setUsername(userdata)
-    }, [])
+    }, []);
 
     useEffect(() => {
         localStorage.setItem('username',username)
-    }, [username])
+    }, [username]);
 
     async function onSubmit(e){
         e.preventDefault()
